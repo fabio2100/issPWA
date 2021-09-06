@@ -1,0 +1,29 @@
+{
+  "name":"Dónde está la estación espacial",
+  "short_name" : "ISS",
+  "description": "Aplicación minimalista para conocer la posición actual de la estación espacial internacional",
+  "background_color":"black",
+  "theme_color":"silver",
+  "orientation":"portrait",
+  "display":"standalone",
+  "start_url":"./?utm_source=web_app_manifest",
+  "scope":"./",
+  "lang":"es",
+  "icons":[
+    {
+      "src":"./img/satellite16.png",
+      "sizes":"16x16",
+      "type":"image/png"
+    },
+    {
+      "src":"./img/satellite256.png",
+      "sizes":"256x256",
+      "type":"image/png"
+    },
+    {
+      "src":"./img/satellite512.png",
+      "sizes":"512x512",
+      "type":"image/png"
+    }
+  ]
+}
