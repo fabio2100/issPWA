@@ -1,0 +1,15 @@
+{
+  "name": "apiiss",
+  "version": "1.0.0",
+  "description": "Devuelve la posición de la estación espacial",
+  "main": "apiISS.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabio Squizzato",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "claudia-api-builder": "^4.1.2"
+  }
+}

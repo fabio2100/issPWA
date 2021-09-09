@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "apiiss-executor",
+    "name": "apiiss",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "bus9ijilni",
+    "module": "apiISS"
+  }
+}

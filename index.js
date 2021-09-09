@@ -3,7 +3,7 @@ new Vue({
   created: function () {
     var self = this;
     axios
-      .get("http://api.open-notify.org/iss-now.json")
+      .get("https://bus9ijilni.execute-api.us-east-1.amazonaws.com/latest/iss")
       .then(function (response) {
         self.iss.push(response.data);
       });
@@ -23,7 +23,7 @@ new Vue({
     obtienePosicion: function () {
       var self = this;
       axios
-        .get("http://api.open-notify.org/iss-now.json")
+        .get("https://bus9ijilni.execute-api.us-east-1.amazonaws.com/latest/iss")
         .then(function (response) {
           self.posicionAnterior = {lat:self.iss[0].lat,longi:self.iss[0].longi};
           
