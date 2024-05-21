@@ -12,14 +12,27 @@
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" class="m-3">
     <div v-if='spineActive' class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
     </div>
-    <div v-else >
+    <div v-else>
       <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
-      <div>{{pivote}}</div>
-      <div>{{direccion}}</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <p class="m-2">Pendiente: {{pendiente.toFixed(3)}}</p>
+            <p class="m-2">Ángulo (PUNTO CARDINAL): {{cardinal.toFixed(0)}}</p>
+            <p class="m-2">Ángulo(rad): {{radianes.toFixed(3)}}</p>
+            <p class="m-2">Ángulo (º): {{centigrados>0 ? centigrados.toFixed(3) : (centigrados+360).toFixed(3)}}</p>
+          </div>
+          <div class="col-6">
+            <div class="m-2">Dirección: {{direccion}}</div>
+          </div>
+        </div>
+      </div>
+    
+
     </div>
     
   </div>

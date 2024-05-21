@@ -12,11 +12,14 @@ new Vue({
     setInterval(this.obtienePosicion, 1500);
   },
   data: {
-    pivote:0,
+    radianes:0,
+    centigrados: 0,
     deltaLongi:0,
     deltaLati:0,
-    angle:0,
+    pendiente:0,
     direccion:'',
+    cardinal: 0,
+    direccionPrecisa:'',
     iss: [],
     spineActive: true,
     mapaCreado: [],
@@ -31,12 +34,29 @@ new Vue({
         .get("https://bus9ijilni.execute-api.us-east-1.amazonaws.com/latest/iss")
         .then(function (response) {
           self.posicionAnterior = {lat:self.iss[0].lat,longi:self.iss[0].longi};
-          console.log('-------------------------------------------')
           self.deltaLati=response.data.iss_position.latitude-self.posicionAnterior.lat;
           self.deltaLongi=response.data.iss_position.longitude-self.posicionAnterior.longi;
-          self.angle = Math.tan(self.deltaLati/self.deltaLongi);
-          console.log(self.angle);
-          self.pivote = self.angle*180/(Math.PI)
+          self.pendiente = self.deltaLati/self.deltaLongi;
+          self.radianes = Math.atan(self.pendiente);
+          self.centigrados = self.radianes*180/(Math.PI);
+          self.cardinal = self.centigrados < 90 ? 90 - self.centigrados : 450 - self.centigrados;
+          if(self.deltaLongi > 0){
+            if(self.pendiente < 1 && self.pendiente > -1){
+              self.direccion = 'ESTE'
+            }else if(self.pendiente > 1){
+              self.direccion = 'NORTE'
+            }else if(self.pendiente < -1){
+              self.direccion = 'SUR'
+            }
+          }else{
+            self.direccion = 'AVANZANDO HACIA EL OESTE'
+          }
+          //DIRECCIÓN PRECISA
+          if(self.deltaLongi > 0){
+
+          }else{
+            self.direccionPrecisa = 'AVANZANDO HACIA EL OESTE'
+          }
           self.iss.pop();
           self.iss.push({
             lat: response.data.iss_position.latitude,
